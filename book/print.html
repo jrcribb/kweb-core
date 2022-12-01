@@ -904,63 +904,44 @@ a <a href="https://in-kotlin.com/design-patterns/builder-pattern/dsl/">DSL build
 <h2 id="a-more-complex-example"><a class="header" href="#a-more-complex-example">A more complex example</a></h2>
 <p>In this example we create a <strong>Component</strong> that wraps an <a href="https://bulma.io/documentation/form/input/">&lt;input&gt; element</a>
 styled using the <a href="https://bulma.io/">Bulma CSS framework</a>:</p>
-<pre><code class="language-kotlin">enum class BulmaColor(val cssClassName: String) {
-    PRIMARY(&quot;is-primary&quot;),
-    LINK(&quot;is-link&quot;),
-    INFO(&quot;is-info&quot;),
-    SUCCESS(&quot;is-success&quot;),
-    WARNING(&quot;is-warning&quot;),
-    DANGER(&quot;is-danger&quot;)
+<pre><code class="language-kotlin">interface BulmaClass {
+    val cssClassName: String
 }
 
-enum class BulmaSize(val cssClassName: String) {
-    SMALL(&quot;is-small&quot;),
-    NORMAL(&quot;is-normal&quot;),
-    MEDIUM(&quot;is-medium&quot;),
-    LARGE(&quot;is-large&quot;)
+enum class BulmaColor(override val cssClassName: String) : BulmaClass {
+    PRIMARY(&quot;is-primary&quot;), LINK(&quot;is-link&quot;),
+    INFO(&quot;is-info&quot;), SUCCESS(&quot;is-success&quot;),
+    WARNING(&quot;is-warning&quot;), DANGER(&quot;is-danger&quot;)
 }
 
-enum class BulmaStyle(val cssClassName: String) {
+enum class BulmaSize(override val cssClassName: String) : BulmaClass {
+    SMALL(&quot;is-small&quot;), NORMAL(&quot;is-normal&quot;),
+    MEDIUM(&quot;is-medium&quot;), LARGE(&quot;is-large&quot;)
+}
+
+enum class BulmaStyle(override val cssClassName: String) : BulmaClass {
     ROUNDED(&quot;is-rounded&quot;),
-    FOCUSED(&quot;is-focused&quot;)
 }
 
-enum class BulmaState(val cssClassName: String) {
-    NORMAL(&quot;is-normal&quot;),
-    HOVER(&quot;is-hovered&quot;),
-    FOCUS(&quot;is-focused&quot;),
-    LOADING(&quot;is-loading&quot;),
+enum class BulmaState(override val cssClassName: String) : BulmaClass {
+    NORMAL(&quot;is-normal&quot;), HOVER(&quot;is-hovered&quot;),
+    FOCUS(&quot;is-focused&quot;), LOADING(&quot;is-loading&quot;),
 }
 
 fun Component.bulmaInput(
     type: InputType,
-    color: KVal&lt;BulmaColor&gt;? = null,
-    size: KVal&lt;BulmaSize&gt;? = null,
-    style: KVal&lt;BulmaStyle&gt;? = null,
-    state: KVal&lt;BulmaState&gt;? = null,
-    disabled: KVal&lt;Boolean&gt;? = null,
-    value: KVar&lt;String&gt;
+    value: KVar&lt;String&gt;,
+    vararg classes : KVal&lt;out BulmaClass&gt; = arrayOf(),
+
 ) {
     input(type = type) { inputElement -&gt;
         var inputClassList: KVal&lt;List&lt;String&gt;&gt; = kval(listOf(&quot;input&quot;))
+
+        for (c in classes) {
+            inputClassList += c.map { listOf(it.cssClassName) }
+        }
+
         with(inputElement) {
-
-            if (color != null) {
-                inputClassList += color.map { listOf(it.cssClassName) }
-            }
-            if (size != null) {
-                inputClassList += size.map { listOf(it.cssClassName) }
-            }
-            if (style != null) {
-                inputClassList += style.map { listOf(it.cssClassName) }
-            }
-            if (state != null) {
-                inputClassList += state.map { listOf(it.cssClassName) }
-            }
-
-            if (disabled != null) {
-                this[&quot;disabled&quot;] = disabled.map { it.json }
-            }
 
             classes(inputClassList.map { it.joinToString(&quot; &quot;) })
 
@@ -971,23 +952,23 @@ fun Component.bulmaInput(
 }
 </code></pre>
 <p>This component can then be used like this:</p>
-<pre><code class="language-kotlin">    Kweb(port = 12354) {
-        doc.head {
-            element(
-                &quot;link&quot;,
-                attributes = mapOf(
-                    &quot;rel&quot; to &quot;stylesheet&quot;.json,
-                    &quot;href&quot; to &quot;https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css&quot;.json
-                )
+<pre><code class="language-kotlin">Kweb(port = 12354) {
+    doc.head {
+        element(
+            &quot;link&quot;,
+            attributes = mapOf(
+                &quot;rel&quot; to &quot;stylesheet&quot;.json,
+                &quot;href&quot; to &quot;https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css&quot;.json
             )
-        }
-
-        doc.body {
-            val username = kvar(&quot;&quot;)
-            val color = username.map { if (it.length &lt; 5) BulmaColor.WARNING else BulmaColor.SUCCESS }
-            bulmaInput(type = text, value = username, color = color)
-        }
+        )
     }
+
+    doc.body {
+        val username = kvar(&quot;&quot;)
+        val color = username.map { if (it.length &lt; 5) BulmaColor.WARNING else BulmaColor.SUCCESS }
+        bulmaInput(type = text, value = username, color)
+    }
+}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="javascript-interop"><a class="header" href="#javascript-interop">JavaScript Interop</a></h1>
 <ul>
