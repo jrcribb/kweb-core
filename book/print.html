@@ -203,7 +203,7 @@ some familiarity with HTML.</p>
 is added to your <code>repositories</code> block.</p>
 <h3 id="groovy"><a class="header" href="#groovy">Groovy</a></h3>
 <pre><code class="language-kotlin">dependencies {
-  implementation 'io.kweb:kweb-core:1.2.0'
+  implementation 'io.kweb:kweb-core:1.3.0'
 
   // This (or another SLF4J binding) is required for Kweb to log errors
   implementation 'org.slf4j:slf4j-simple:2.0.3'
@@ -211,7 +211,7 @@ is added to your <code>repositories</code> block.</p>
 </code></pre>
 <h3 id="kotlin"><a class="header" href="#kotlin">Kotlin</a></h3>
 <pre><code class="language-kotlin">dependencies {
-  implementation(&quot;io.kweb:kweb-core:1.2.0&quot;)
+  implementation(&quot;io.kweb:kweb-core:1.3.0&quot;)
 
   // This (or another SLF4J binding) is required for Kweb to log errors
   implementation(&quot;org.slf4j:slf4j-simple:2.0.3&quot;)
@@ -891,11 +891,11 @@ reusability, testability, and the ability to reason about a system in isolation.
         }
     }
 </code></pre>
-<p>Components are configured through the extension fuunction parameters, typically through
+<p>Components are configured through the extension function parameters, typically through
 a mixture of:</p>
 <ul>
-<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-val/index.html">KVal</a>s for values that can change</li>
-<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-var/index.html">KVar</a>s for values that can change or be changed by the Component</li>
+<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-val/index.html">KVal</a>s for values that can change but not be modified by the component</li>
+<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-var/index.html">KVar</a>s for values that can change or be changed by the component</li>
 <li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-observable-list/index.html">ObservableList</a>s for lists of values that can change</li>
 <li>Other normal classes like <strong>String</strong> for immutable values</li>
 </ul>
