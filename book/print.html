@@ -5,7 +5,10 @@
         <meta charset="UTF-8">
         <title>The Kweb User Manual</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
+        
         <meta name="description" content="User manual for the Kweb web framework">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,15 +19,18 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -83,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -113,6 +119,7 @@
                         <a href="https://github.com/kwebio/kweb-core" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -126,6 +133,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -139,43 +147,24 @@
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <h2 id="why-another-web-framework"><a class="header" href="#why-another-web-framework">Why another web framework?</a></h2>
-<p>Modern websites consist of at least two <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)">tightly
-coupled</a>
-components, one runs in the browser, the other on the server. These are
-often written in different programming languages and must communicate
-with each other over an HTTP(S) connection.</p>
-<p>Kweb's goal is to eliminate this server/browser separation so you can
-focus on building your website or user interface, not on the plumbing.</p>
-<h2 id="what-is-kweb"><a class="header" href="#what-is-kweb">What is Kweb?</a></h2>
-<p>Kweb is a remote interface to a web browser's DOM. With Kweb, you can create 
-and manipulate DOM elements, and bind mutable values to DOM elements, and listen for 
-and handle events. All of this can be done using an intuitive and convenient domain-specific 
-language that mirrors the structure of the HTML being created. </p>
-<p>Kweb is very efficient, using many <a href="speed.html">optimizations</a> to minimize latency and resource 
-usage both on the server and in the browser. Kweb is built on the <a href="https://ktor.io/">Ktor</a> 
-framework, which handles HTTP, HTTPS, and WebSocket transport.</p>
+<p>Kweb is designed to make it easy for developers to create modern websites without having to worry about the complexities of communication between the server and browser. With a unified codebase, you can focus on creating an intuitive and user-friendly interface, rather than spending time on technical details. 
+By streamlining the development process, Kweb makes it easier to build and maintain functional and beautiful websites.</p>
+<h2 id="how-does-it-work"><a class="header" href="#how-does-it-work">How does it work?</a></h2>
+<p>Kweb is a remote interface for a web browser's DOM (Document Object Model). With Kweb, you can create 
+and manipulate DOM elements, and listen for and handle events, all using an intuitive Kotlin DSL that mirrors 
+the structure of the HTML being created. Kweb is built on the Ktor framework, which handles HTTP, HTTPS, and 
+WebSocket transport, and is optimized to minimize latency and resource usage on both the server and browser.</p>
 <h2 id="features"><a class="header" href="#features">Features</a></h2>
 <ul>
-<li>
-<p>End-to-end Kotlin - write your entire web site or user interface in Kotlin, without needing to communicate between a browser and server (<a href="https://steve-yegge.blogspot.com/2017/05/why-kotlin-is-better-than-whatever-dumb.html?m=1">Why
-Kotlin?</a>)</p>
-</li>
-<li>
-<p>Realtime synchronization of your back-end data with your web page - Kweb takes care of all the plumbing for you</p>
-</li>
-<li>
-<p>Server-side HTML rendering with <a href="https://en.wikipedia.org/wiki/Hydration_(web_development)">hydration</a>, Kweb can render your HTML on the server before sending it to the browser, so that the browser doesn't have to do any rendering</p>
-</li>
-<li>
-<p>Efficient instruction preloading - Kweb can avoid unnecessary server communication by preloading instructions</p>
-</li>
-<li>
-<p>Very lightweight - Kweb is less than 5,000 lines of code</p>
-</li>
+<li>End-to-end Kotlin - Write your entire web site or user interface in Kotlin, Kweb takes care of browser-server communication</li>
+<li>Real-time synchronization of your back-end data with your web page - Kweb takes care of all the plumbing for you</li>
+<li>Server-side HTML rendering with hydration - Kweb renders your HTML on the server before sending it to the browser</li>
+<li>Efficient instruction preloading - Kweb avoids unnecessary server communication by preloading instructions</li>
+<li>Very lightweight - Kweb is just 5k lines of code</li>
 </ul>
 <h2 id="relevant-links"><a class="header" href="#relevant-links">Relevant Links</a></h2>
 <ul>
-<li><a href="https://github.com/kwebio/kweb-core">Github repository</a></li>
+<li><a href="https://github.com/kwebio/kweb-core">GitHub repository</a></li>
 <li><a href="https://docs.kweb.io/api/">API documentation</a></li>
 <li><a href="https://github.com/freenet/freenetorg-website/">Example Google Cloud Project</a></li>
 <li><a href="https://github.com/kwebio/kweb-core/issues">Questions/Feedback/Bugs</a></li>
@@ -195,15 +184,14 @@ Kotlin?</a>)</p>
 <li><a href="gettingstarted.html#template-repository">Template Repository</a></li>
 </ul>
 <h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
-<p>Some familiarity with <a href="https://kotlinlang.org/">Kotlin</a> is assumed, as
-is familiarity with <a href="https://gradle.org/">Gradle</a>. You should also have
-some familiarity with HTML.</p>
+<p>To get started with Kweb, you should have some familiarity with <a href="https://kotlinlang.org/">Kotlin</a> and 
+<a href="https://gradle.org/">Gradle</a>. It is also helpful to have a basic understanding of HTML.</p>
 <h2 id="adding-kweb-to-your-gradle-project"><a class="header" href="#adding-kweb-to-your-gradle-project">Adding Kweb to your Gradle project</a></h2>
-<p>Add these to your dependencies in your <code>build.gradle</code> or <code>build.gradle.kt</code> files, ensure <code>mavenCentral()</code> 
-is added to your <code>repositories</code> block.</p>
+<p>To add Kweb to your Gradle project, you will need to include the following dependencies in your 
+<code>build.gradle</code> or <code>build.gradle.kt</code> files:</p>
 <h3 id="groovy"><a class="header" href="#groovy">Groovy</a></h3>
 <pre><code class="language-kotlin">dependencies {
-  implementation 'io.kweb:kweb-core:1.3.0'
+  implementation 'io.kweb:kweb-core:1.3.5'
 
   // This (or another SLF4J binding) is required for Kweb to log errors
   implementation 'org.slf4j:slf4j-simple:2.0.3'
@@ -211,14 +199,15 @@ is added to your <code>repositories</code> block.</p>
 </code></pre>
 <h3 id="kotlin"><a class="header" href="#kotlin">Kotlin</a></h3>
 <pre><code class="language-kotlin">dependencies {
-  implementation(&quot;io.kweb:kweb-core:1.3.0&quot;)
+  implementation(&quot;io.kweb:kweb-core:1.3.5&quot;)
 
   // This (or another SLF4J binding) is required for Kweb to log errors
   implementation(&quot;org.slf4j:slf4j-simple:2.0.3&quot;)
 }
 </code></pre>
 <h2 id="hello-world"><a class="header" href="#hello-world">Hello world</a></h2>
-<p>Create a new Kotlin file and type this:</p>
+<p>To create a simple &quot;Hello World&quot; example with Kweb, create a new Kotlin file 
+and enter the following code:</p>
 <pre><code class="language-kotlin">import kweb.*
 
 fun main() {
@@ -229,28 +218,26 @@ fun main() {
     }
 }
 </code></pre>
-<p>Run it, and then visit <a href="http://localhost:16097/">http://localhost:16097/</a> in your web browser to
-see the traditional greeting, translating to the following HTML body:</p>
+<p>Run the file and then visit <a href="http://localhost:16097/">http://localhost:16097/</a> in your web browser to see the 
+output. This should display the following HTML body:</p>
 <pre><code class="language-html">&lt;body&gt;
   &lt;h1&gt;Hello World!&lt;/h1&gt;
 &lt;/body&gt;
 </code></pre>
-<p>This simple example already illustrates some important features of Kweb:</p>
+<p>This example demonstrates two important features of Kweb:</p>
 <ul>
-<li>Getting a kwebsite up and running is a breeze, no messing around
-with servlets, or third party webservers</li>
-<li>Your kotlin code will loosely mirror the structure of the HTML it
-generates</li>
+<li>Setting up a kwebsite is easy and does not require servlets or third-party web servers.</li>
+<li>The structure of your Kotlin code will closely match the structure of the HTML it generates.</li>
 </ul>
 <h2 id="hello-world²"><a class="header" href="#hello-world²">Hello world²</a></h2>
 <p>One way to think of Kweb is as a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language
 (DSL)</a> for
 building and manipulating a
 <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> in a remote
-web browser, while also listening for and handing DOM events.</p>
-<p>Importantly, this DSL can also do anything Kotlin can do, including
+web browser, while also listening for and handing DOM events. It's important to note
+that this DSL can also do anything that Kotlin can do, including
 features like for loops, functions, coroutines, and classes.</p>
-<p>Here is a simple example using an ordinary Kotlin <em>for loop</em>:</p>
+<p>Here is a simple example using a Kotlin <em>for loop</em>:</p>
 <pre><code class="language-kotlin">Kweb(port = 16097) {
     doc.body {
         ul {
@@ -261,7 +248,7 @@ features like for loops, functions, coroutines, and classes.</p>
     }
 }
 </code></pre>
-<p>To produce...</p>
+<p>This will produce the following HTML:</p>
 <pre><code class="language-html">&lt;body&gt;
   &lt;ul&gt;
       &lt;li&gt;Hello World 1!&lt;/li&gt;
@@ -421,8 +408,12 @@ event data like which key was pressed:</p>
 short but sometimes noticeable delay before the page updates in response
 to an event.</p>
 <p>Fortunately, Kweb has a solution:</p>
-<pre><code class="language-kotlin">inputButton.on(retrieveJs = &quot;(new Date()).getTime()&quot;).click { event -&gt;
-    label.text(&quot;Clicked at ${event.retrieved.jsonPrimitive.content}&quot;)
+<pre><code class="language-kotlin">doc.body {
+    val input = button(type = ButtonType.button)
+    val label = span().text(&quot;Not clicked&quot;)
+    input.onImmediate.click {
+        label.text(&quot;Clicked!&quot;)
+    }
 }
 </code></pre>
 <p>Kweb executes this event handler <em>on page render</em> and records the
@@ -735,8 +726,10 @@ with the style of your overall website:</p>
 <p>You can obtain <strong>and modify</strong> the URL of the current page using
 <a href="https://github.com/kwebio/kweb-core/blob/master/src/main/kotlin/kweb/WebBrowser.kt#L98">WebBrowser.url</a>.</p>
 <p>This returns a <code>KVar&lt;String&gt;</code> which contains the URL relative to the
-origin - so for the page <code>http://foo/bar/z</code> the <code>url</code> would be <code>/bar/z</code>.</p>
-<p>Here is a more realistic example:</p>
+origin - so for the page <code>http://foo/bar/z</code> the <code>url</code> would be <code>/bar/z</code>.
+This KVar will update accordingly if the URL changes, and can also be
+modified itself, which will change the URL.</p>
+<p>Here is a more realistic example which demonstrates this:</p>
 <pre><code class="language-kotlin">import kweb.Kweb
 import kweb.dom.element.creation.tags.a
 import kweb.dom.element.new
@@ -766,10 +759,11 @@ to <code>http://localhost:16097/number/1</code> without a page refresh, and you'
 see a hyperlink with text <code>Number 1</code>. If you click on this link you'll
 see that the number increments (both in the URL and in the link text),
 also without a page refresh.</p>
-<p><code>num.value++</code> is worthy of additional attention. <code>num</code> is a <code>KVar&lt;Int&gt;</code>, 
-and so it can be incremented via its <code>value</code> property. This will cause the 
-page URL to update, which will in-turn cause the DOM to update to reflect 
-the new URL. All of this is handled for you automatically by Kweb.</p>
+<p><code>num.value++</code> is worthy of additional attention. <code>num</code> is a <code>KVar&lt;Int&gt;</code>
+converted from the <code>KVar&lt;String&gt;</code> supplied as a parameter. Because of this
+it can be incremented via its <code>value</code> property. </p>
+<p>This change will propagate back causing the URL to update, which will in-turn cause the 
+DOM to update to reflect the new URL. All of this is handled for you automatically.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="css--style"><a class="header" href="#css--style">CSS &amp; Style</a></h1>
 <p>Kweb can integrate easily with most CSS frameworks, particularly those
 that don't have a heavy reliance on JavaScript. Injecting custom CSS files 
@@ -893,12 +887,13 @@ reusability, testability, and the ability to reason about a system in isolation.
 </code></pre>
 <p>Components are configured through the extension function parameters, typically through
 a mixture of:</p>
-<ul>
-<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-val/index.html">KVal</a>s for values that can change but not be modified by the component</li>
-<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-var/index.html">KVar</a>s for values that can change or be changed by the component</li>
-<li><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-observable-list/index.html">ObservableList</a>s for lists of values that can change</li>
-<li>Other normal classes like <strong>String</strong> for immutable values</li>
-</ul>
+<div class="table-wrapper"><table><thead><tr><th>Parameter Type</th><th>For</th></tr></thead><tbody>
+<tr><td><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-val/index.html">KVals</a>s</td><td>Values that can change but not be modified by the component</td></tr>
+<tr><td><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-k-var/index.html">KVars</a></td><td>Values that can change or be modified by the component</td></tr>
+<tr><td><a href="https://docs.kweb.io/api/kweb-core/kweb.state/-observable-list/index.html">ObservableLists</a></td><td>Lists of values that can change or be modified by the component</td></tr>
+<tr><td>Double, String, etc</td><td>Values that don't change</td></tr>
+</tbody></table>
+</div>
 <p>The simplest Component's may have no parameters at all, or just one or two, while the most complex might use 
 a <a href="https://in-kotlin.com/design-patterns/builder-pattern/dsl/">DSL builder</a>.</p>
 <h2 id="a-more-complex-example"><a class="header" href="#a-more-complex-example">A more complex example</a></h2>
@@ -952,20 +947,28 @@ fun Component.bulmaInput(
 }
 </code></pre>
 <p>This component can then be used like this:</p>
-<pre><code class="language-kotlin">Kweb(port = 12354) {
+<pre><code class="language-kotlin">val bulmaUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css&quot;.json
+
+fun shouldWarn(username : String) =
+    if (username.length &lt; 5)
+        BulmaColor.WARNING
+    else
+        BulmaColor.SUCCESS
+
+Kweb(port = 12354) {
     doc.head {
         element(
             &quot;link&quot;,
             attributes = mapOf(
                 &quot;rel&quot; to &quot;stylesheet&quot;.json,
-                &quot;href&quot; to &quot;https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css&quot;.json
+                &quot;href&quot; to bulmaUrl
             )
         )
     }
 
     doc.body {
         val username = kvar(&quot;&quot;)
-        val color = username.map { if (it.length &lt; 5) BulmaColor.WARNING else BulmaColor.SUCCESS }
+        val color = username.map { shouldWarn(it) }
         bulmaInput(type = text, value = username, color)
     }
 }
@@ -1053,9 +1056,8 @@ This JavaScript is parsed using <a href="https://developer.mozilla.org/en-US/doc
 (which is more efficient than <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval">eval</a>), 
 and then cached in the browser for future use.</p>
 <h2 id="input-field-diffing"><a class="header" href="#input-field-diffing">Input field diffing</a></h2>
-<p>When an <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> field is modified, Kweb only sends the change to the browser rather than the
-entire field. This is essential for performance when the field is large, or when its being synchronised on
-every keypress.</p>
+<p>When an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, or <code>&lt;textarea&gt;</code> element <a href="https://www.w3schools.com/tags/att_input_value.asp">value</a>` 
+is modified, Kweb only sends the change to the browser rather than the entire field.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h1>
 <ul>
 <li><a href="faq.html#wont-kweb-be-slow-relative-to-client-side-web-frameworks">Won't Kweb be slow relative to client-side web frameworks?</a></li>
@@ -1116,7 +1118,13 @@ which is in-turn running on Google Cloud Platform with FireStore as a database.<
 <a href="https://github.com/kwebio/kweb-demos/tree/master/">kwebio/kweb-demos</a></p>
 <h2 id="how-do-i-enable-https"><a class="header" href="#how-do-i-enable-https">How do I enable HTTPS?</a></h2>
 <p>Very easily, please see <a href="https://github.com/kwebio/kweb-demos/blob/master/https/src/HttpsApp.kt">this
-example</a>.</p>
+example</a>. You can
+also rely on a load-balancer to translate between HTTPS and HTTP so that this is handled
+external to Kweb.</p>
+<p><strong>Note:</strong> It is highly recommended that you use HTTPS as plain HTTP is vulnerable to
+<a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a>, and Kweb does not
+yet (Jan 2023) implement mitigation measures against this. This is a common shortcoming
+for may web frameworks.</p>
 <h2 id="can-i-embed-kweb-within-an-android-app"><a class="header" href="#can-i-embed-kweb-within-an-android-app">Can I embed Kweb within an Android app?</a></h2>
 <p>Yes! Please see
 <a href="https://github.com/kwebio/kweb-demos/tree/master/android">kweb-demos/tree/master/android</a>
@@ -1170,31 +1178,42 @@ a more realtime experience you can also chat with us on
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
+
+
+
         <script>
             window.playground_copyable = true;
         </script>
+
+
         <script src="elasticlunr.min.js"></script>
         <script src="mark.min.js"></script>
         <script src="searcher.js"></script>
+
         <script src="clipboard.min.js"></script>
         <script src="highlight.js"></script>
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
         <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
     </body>
 </html>

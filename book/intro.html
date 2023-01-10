@@ -4,7 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Introduction - The Kweb User Manual</title>
+
+
         <!-- Custom HTML head -->
+        
         <meta name="description" content="User manual for the Kweb web framework">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -15,15 +18,18 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -82,7 +88,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -115,6 +121,7 @@
                         <a href="https://github.com/kwebio/kweb-core/edit/master/docs/src/intro.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -128,6 +135,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -141,43 +149,24 @@
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <h2 id="why-another-web-framework"><a class="header" href="#why-another-web-framework">Why another web framework?</a></h2>
-<p>Modern websites consist of at least two <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)">tightly
-coupled</a>
-components, one runs in the browser, the other on the server. These are
-often written in different programming languages and must communicate
-with each other over an HTTP(S) connection.</p>
-<p>Kweb's goal is to eliminate this server/browser separation so you can
-focus on building your website or user interface, not on the plumbing.</p>
-<h2 id="what-is-kweb"><a class="header" href="#what-is-kweb">What is Kweb?</a></h2>
-<p>Kweb is a remote interface to a web browser's DOM. With Kweb, you can create 
-and manipulate DOM elements, and bind mutable values to DOM elements, and listen for 
-and handle events. All of this can be done using an intuitive and convenient domain-specific 
-language that mirrors the structure of the HTML being created. </p>
-<p>Kweb is very efficient, using many <a href="speed.html">optimizations</a> to minimize latency and resource 
-usage both on the server and in the browser. Kweb is built on the <a href="https://ktor.io/">Ktor</a> 
-framework, which handles HTTP, HTTPS, and WebSocket transport.</p>
+<p>Kweb is designed to make it easy for developers to create modern websites without having to worry about the complexities of communication between the server and browser. With a unified codebase, you can focus on creating an intuitive and user-friendly interface, rather than spending time on technical details. 
+By streamlining the development process, Kweb makes it easier to build and maintain functional and beautiful websites.</p>
+<h2 id="how-does-it-work"><a class="header" href="#how-does-it-work">How does it work?</a></h2>
+<p>Kweb is a remote interface for a web browser's DOM (Document Object Model). With Kweb, you can create 
+and manipulate DOM elements, and listen for and handle events, all using an intuitive Kotlin DSL that mirrors 
+the structure of the HTML being created. Kweb is built on the Ktor framework, which handles HTTP, HTTPS, and 
+WebSocket transport, and is optimized to minimize latency and resource usage on both the server and browser.</p>
 <h2 id="features"><a class="header" href="#features">Features</a></h2>
 <ul>
-<li>
-<p>End-to-end Kotlin - write your entire web site or user interface in Kotlin, without needing to communicate between a browser and server (<a href="https://steve-yegge.blogspot.com/2017/05/why-kotlin-is-better-than-whatever-dumb.html?m=1">Why
-Kotlin?</a>)</p>
-</li>
-<li>
-<p>Realtime synchronization of your back-end data with your web page - Kweb takes care of all the plumbing for you</p>
-</li>
-<li>
-<p>Server-side HTML rendering with <a href="https://en.wikipedia.org/wiki/Hydration_(web_development)">hydration</a>, Kweb can render your HTML on the server before sending it to the browser, so that the browser doesn't have to do any rendering</p>
-</li>
-<li>
-<p>Efficient instruction preloading - Kweb can avoid unnecessary server communication by preloading instructions</p>
-</li>
-<li>
-<p>Very lightweight - Kweb is less than 5,000 lines of code</p>
-</li>
+<li>End-to-end Kotlin - Write your entire web site or user interface in Kotlin, Kweb takes care of browser-server communication</li>
+<li>Real-time synchronization of your back-end data with your web page - Kweb takes care of all the plumbing for you</li>
+<li>Server-side HTML rendering with hydration - Kweb renders your HTML on the server before sending it to the browser</li>
+<li>Efficient instruction preloading - Kweb avoids unnecessary server communication by preloading instructions</li>
+<li>Very lightweight - Kweb is just 5k lines of code</li>
 </ul>
 <h2 id="relevant-links"><a class="header" href="#relevant-links">Relevant Links</a></h2>
 <ul>
-<li><a href="https://github.com/kwebio/kweb-core">Github repository</a></li>
+<li><a href="https://github.com/kwebio/kweb-core">GitHub repository</a></li>
 <li><a href="https://docs.kweb.io/api/">API documentation</a></li>
 <li><a href="https://github.com/freenet/freenetorg-website/">Example Google Cloud Project</a></li>
 <li><a href="https://github.com/kwebio/kweb-core/issues">Questions/Feedback/Bugs</a></li>
@@ -188,15 +177,18 @@ Kotlin?</a>)</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
                             <a rel="next" href="gettingstarted.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
                     <a rel="next" href="gettingstarted.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -204,16 +196,24 @@ Kotlin?</a>)</p>
 
         </div>
 
+
+
+
         <script>
             window.playground_copyable = true;
         </script>
+
+
         <script src="elasticlunr.min.js"></script>
         <script src="mark.min.js"></script>
         <script src="searcher.js"></script>
+
         <script src="clipboard.min.js"></script>
         <script src="highlight.js"></script>
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
     </body>
 </html>
